@@ -124,7 +124,16 @@ The output consists of 3 major tasks:
   Please note that the certificate-key gives access to cluster sensitive data, keep it secret!
   As a safeguard, uploaded-certs will be deleted in two hours; If necessary, you can use
   ```kubeadm init phase upload-certs --upload-certs``` to reload certs afterward.
-  
+
+for regenerating the join command for Master node use below commands:
+```
+# kubeadm init phase upload-certs --upload-certs
+8801302dadf12348c59df41f990683095b191774bdd6750491015ff98a69fe98
+
+# kubeadm token create --print-join-command
+kubeadm join 192.168.10.100:6443 --token 354nd6.7tdroi4shmh6oasl --discovery-token-ca-cert-hash sha256:956c3a94edfdbd470873150213d4d68fe14bbb66ba52471be7f38a01a7c44026 -control-plane --certificate-key 8801302dadf12348c59df41f990683095b191774bdd6750491015ff98a69fe98
+```
+
 ## Install CNI and complete installation
 From one of the master nodes, run below command to deploy a pod network on cluster (here Flannel):
 ```
