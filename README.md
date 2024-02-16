@@ -60,7 +60,7 @@ Log in to all the 4 machines as described above
 ### 5. Login to Master1 and initiate your kubernetes cluster:
 The IP which has been wrote in front of the ```--control-plane-endpoint``` is the IP of master node interface which we needs our cluster published on it:
 ```
-# kubeadm init --control-plane-endpoint "192.168.44.137:6443" --upload-certs --pod-network-cidr=10.244.0.0/16
+# kubeadm init --control-plane-endpoint "192.168.44.137:6443" --upload-certs --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address 192.168.44.137
 ```
 your output should look like below:
 ```
